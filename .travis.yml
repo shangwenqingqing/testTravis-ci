@@ -2,4 +2,6 @@ language: java
 jdk:
   - oraclejdk8
 
-script: echo why gradlew
+script: echo why gradlw
+         pwd
+         gradle :pg-token-server:build
