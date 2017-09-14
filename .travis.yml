@@ -1,7 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
-services:
-  - redis
+
 sudo: required
 script: gradle build
