@@ -1,3 +1,4 @@
 language: java
 jdk: oraclejdk8
-script: gradle :pg-token-server:build
+script: -gradle :pg-token-server:build
+         -echo hahaha
