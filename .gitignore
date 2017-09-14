@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/testTravis-ci.iml
+.idea/workspace.xml
+build.gradle
+settings.gradle
+src/
+
