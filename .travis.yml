@@ -1,15 +1,3 @@
 language: java
-jdk:
-  - oraclejdk8
-stages:
-  - build
-#  - dockerPush
-
-# 定义 job
-gradle_build:
-  stage: build
-  script:
-    - echo "starting gradle build"
-    - gradle :pg-token-server:build
-    - echo "Build Success"
-
+jdk: oraclejdk8
+script: gradle :pg-token-server:build
