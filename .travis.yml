@@ -1,7 +1,15 @@
 language: java
 jdk:
   - oraclejdk8
+stages:
+  - build
+#  - dockerPush
 
-script: -echo why gradlw
-         -pwd
-         -gradle :pg-token-server:build
+# 定义 job
+gradle_build:
+  stage: build
+  script:
+    - echo "starting gradle build"
+    - gradle :pg-token-server:build
+    - echo "Build Success"
+
