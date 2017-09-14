@@ -4,4 +4,4 @@ jdk:
 services:
   - redis
 sudo: required
-script: ./mvnw install
+script: ceho 'hello'
