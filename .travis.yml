@@ -1,3 +1,9 @@
+group: edge
+dist: trusty
 language: java
 jdk: oraclejdk8
-script: gradle :pg-token-server:build
+
+script:
+  # test and build
+  - gradle clean test build
+  - echo hahaha
