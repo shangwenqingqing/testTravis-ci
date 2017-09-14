@@ -2,6 +2,5 @@
 .idea/workspace.xml
 build.gradle
 settings.gradle
-src/
 /.gradle/
 /.idea/
