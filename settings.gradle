@@ -1,0 +1,3 @@
+rootProject.name = 'pg-token'
+include 'pg-token-server'
+include 'pg-token-client'

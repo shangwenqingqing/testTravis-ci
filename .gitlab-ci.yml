@@ -1,0 +1,24 @@
+# 定义 stages
+
+stages:
+  - build
+  - dockerPush
+
+# 定义 job
+gradle_build:
+  only:
+    - master
+  stage: build
+  script:
+    - echo "starting gradle build"
+    - gradle :pg-token-server:build
+    - echo "Build Success"
+
+gradle_docker_Push:
+  only:
+    - master
+  stage: dockerPush
+  script:
+    - echo "starting gradle dockerPush"
+    - gradle :pg-token-server:dockerPush -PdockerUser=$dockerUser -PdockerPassword=$dockerPassword
+    - echo "dockerPush Success"
