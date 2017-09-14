@@ -1,6 +1,0 @@
-apply plugin: 'maven'
-
-dependencies {
-    compile 'cn.payingcloud:umf-java:1.0.0'
-    compile 'org.springframework:spring-web:4.3.9.RELEASE'
-}
