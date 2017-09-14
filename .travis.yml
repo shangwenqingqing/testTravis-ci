@@ -2,4 +2,4 @@ language: java
 jdk:
   - oraclejdk8
 
-script: ceho 'hello'
+script: println('hello')
