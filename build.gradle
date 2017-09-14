@@ -1,31 +1,37 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.6.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE'
+        classpath 'com.bmuschko:gradle-docker-plugin:3.1.0'
+    }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
+subprojects {
+    apply plugin: 'java'
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+    group 'cn.payingcloud'
+    version '1.0.0'
 
-repositories {
-	mavenLocal()
-	maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
-	jcenter()
-	mavenCentral()
-}
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        jcenter()
+    }
 
-dependencies {
-	compile 'cn.payingcloud:umf-java:1.0.0'
-	compile 'org.springframework.boot:spring-boot-starter-web'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    dependencies {
+        testCompile 'junit:junit:4.12'
+    }
+
+    apply plugin: 'com.bmuschko.docker-remote-api'
+    docker {
+        registryCredentials {
+            url = 'registry-internal.cn-beijing.aliyuncs.com'
+            username = project.hasProperty('dockerUser') ? project.property('dockerUser') : '<dockerUser>'
+            password = project.hasProperty('dockerPassword') ? project.property('dockerPassword') : '<dockerPassword>'
+        }
+    }
 }
